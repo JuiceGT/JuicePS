@@ -112,16 +112,38 @@
     @keyframes rgbText {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      100% { background-position: 0% 50%; 
     }
+      
     .card {
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #1e293b;
-  color: white;
-  text-align: center;
-  border: 2px solid;
-  border-image: linear-gradient(to right, #2563eb, #38bdf8) 1;
+      position: relative;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 400% 400%;
+      animation: rgb-border 6s linear infinite;
+      border-radius: 14px;
+   }
+
+    @keyframes rgb-border {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
